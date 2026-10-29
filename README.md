@@ -10,8 +10,8 @@
 
 ## Key Features
 
-* **Automated BOM Parsing:** Reads and structures standard CSV outputs exported directly from multi-part SolidWorks machine assemblies (e.g., universal couplings, screw jacks).
-* **Dynamic Cost Mapping:** Cross-references CAD part materials (Steel, Aluminum, Bronze, High-Carbon Steel) with a dictionary of real-world raw material costs per kilogram.
+* **Automated BOM Parsing:** Reads a SolidWorks-style BOM in CSV format (a sample BOM is embedded in the script).
+* **Dynamic Cost Mapping:** assumed raw material costs per kilogram (editable in the script).
 * **Mass & Budget Aggregation:** Automatically calculates per-part cost/weight parameters and generates a final summation for the entire machine assembly layout.
 * **Financial Reporting:** Outputs a clean, terminal-based engineering cost report ready for facility planning and manufacturing budgeting.
 
@@ -28,3 +28,12 @@
  SolidWorks-BOM-Cost-Estimator
  ┣ bom_estimator.py    # Pandas DataFrame logic and material cost mapping
  ┗ README.md           # Project documentation
+
+## How to Run
+
+pip install pandas
+python bom_estimator.py
+
+## Data Note
+
+The parts list and material prices are sample values for demonstration. To use a real SolidWorks export, replace the embedded CSV with `pd.read_csv("your_bom.csv")` using the same columns: Part Number, Description, Material, Quantity, Unit Mass (kg).
